@@ -21,21 +21,21 @@ export default class Menu extends Component {
         id: 2,
         image: 'https://imglupa.blob.core.windows.net/img/water.png',
         title: 'Água',
-        description: 'Lain pop sky blue',
+        description: '(Em construção...)',
       
       },
       {
         id: 3,
         image: 'https://imglupa.blob.core.windows.net/img/trash.png',
         title: 'Coleta de Lixo',
-        description: 'Andrea nappa dusty pink',
+        description: '(Em construção...)',
         
       },
       {
         id: 4,
         image: 'https://imglupa.blob.core.windows.net/img/sewer.png',
         title: 'Esgoto',
-        description: 'Lain pop sky blue',
+        description: '(Em construção...)',
      
       },
             

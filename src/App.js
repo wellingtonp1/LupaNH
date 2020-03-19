@@ -11,6 +11,7 @@ import {
   ToolbarAndroid } from 'react-native';
 
 import Menu from './components/Menu';
+import Tabs from './components/Tabs';
 
 const App: () => React$Node = () => {
   return (
@@ -20,7 +21,8 @@ const App: () => React$Node = () => {
           <ScrollView>
              <Menu />
           </ScrollView>
-        </View>   
+          <Tabs /> 
+         </View>   
     </>
   );
 };
