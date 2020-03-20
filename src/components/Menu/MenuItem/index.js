@@ -8,7 +8,7 @@ import Icon from 'react-native-vector-icons/Ionicons';
 import styles from './styles';
 
 const MenuItem = ({ menuItem: { image, title, description } }) => (
-  <View style={styles.container}>
+  <View style={styles.container} >
          
     <View style={styles.imageContainer}>
       <Image source={{ uri: image }} style={styles.image} />

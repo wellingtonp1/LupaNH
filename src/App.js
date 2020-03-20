@@ -12,11 +12,13 @@ import {
 
 import Menu from './components/Menu';
 import Tabs from './components/Tabs';
+import HeaderBar from './components/HeaderBar';
 
 const App: () => React$Node = () => {
   return (
     <>
        <View style={{ flex: 1, backgroundColor: '#2A7549' }}>
+          <HeaderBar />
           <Image style={styles.head} source={require('../images/lupanh.png')} />
           <ScrollView>
              <Menu />

@@ -19,7 +19,7 @@ const styles = StyleSheet.create({
     position: 'absolute',
     right: metrics.padding,
     top: metrics.padding,
-   
+    color: colors.primary,
     zIndex: 1,
   },
 
@@ -36,27 +36,21 @@ const styles = StyleSheet.create({
   infoContainer: {
     padding: metrics.padding,
     borderTopWidth: 1,
-   
+    borderColor: colors.lighter,
   },
 
   title: {
     textAlign: 'center',
     fontWeight: 'bold',
-   
+    color: colors.darker,
   },
 
   description: {
     textAlign: 'center',
-    
+    color: colors.dark,
     fontSize: fonts.smaller,
   },
 
-  price: {
-    textAlign: 'center',
-   
-    fontSize: fonts.regular,
-    marginTop: 5,
-  },
 });
 
 export default styles;
