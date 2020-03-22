@@ -20,6 +20,8 @@ const styles = StyleSheet.create({
 
   title: {
     fontSize: fonts.big,
+    justifyContent: 'center',
+    alignItems: 'center' 
   },
 });
 

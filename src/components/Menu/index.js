@@ -6,8 +6,9 @@ import { View } from 'react-native';
 import MenuItem from './MenuItem';
 import styles from './styles';
 
-
 export default class Menu extends Component {
+  
+  
   state = {
     menuItem: [
       {

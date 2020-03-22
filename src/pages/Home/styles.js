@@ -1,5 +1,5 @@
 import { StyleSheet, Dimensions } from 'react-native';
-import { colors, fonts, metrics } from '../../../styles';
+import { colors, fonts, metrics } from '../../styles';
 
 const { width } = Dimensions.get('window');
 
@@ -58,6 +58,10 @@ const styles = StyleSheet.create({
     fontSize: fonts.regular,
     marginTop: 5,
   },
+  head: {
+    width: 390,
+    height: 210,
+ },
 });
 
 export default styles;
