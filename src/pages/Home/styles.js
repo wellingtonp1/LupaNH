@@ -30,7 +30,7 @@ const styles = StyleSheet.create({
 
   image: {
     width: '100%',
-    height: 100,
+    height: 80,
     resizeMode: 'contain',
   },
 
@@ -49,7 +49,7 @@ const styles = StyleSheet.create({
   description: {
     textAlign: 'justify',
     color: colors.white,
-    fontSize: fonts.small,
+    fontSize: fonts.regular,
     marginBottom: 8,
     marginTop: 8,
   },

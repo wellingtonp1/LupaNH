@@ -21,7 +21,7 @@ export default function Home({ navigation }) {
 
     <View style={{ flex: 1, backgroundColor: '#2A7549', padding: 10 }}>
     <Image style={styles.head}  source={require('../../../images/lupanh.png')} />
-    <Text style={styles.description}>Clicando nos ícones abaixo você responde a questões relacionadas aos temas tratados. Assim você ajuda a melhorar a infraestrutura do nosso bairro.</Text>
+    <Text style={styles.description}>Clicando nos ícones abaixo você responde a questões relacionadas aos temas tratados. Assim você ajuda a melhorar a infraestrutura do bairro Novo Horizonte.</Text>
     <ScrollView style={{marginTop:5}}>
       <View style={{ flexDirection: 'row', flexWrap: 'wrap', justifyContent: 'space-between',}} >
       <View style={styles.container} > 
