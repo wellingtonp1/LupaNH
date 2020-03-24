@@ -1,7 +1,7 @@
 import React from 'react';
 import { View, Text, Button } from 'react-native';
 
-// import { Container } from './styles';
+import styles from './styles';
 
 export default function Twitter({ navigation }) {
   function navigateToHome() {
@@ -9,9 +9,9 @@ export default function Twitter({ navigation }) {
   }
 
   return (
-    <View>
-      <Text>Aponte Problemas - Twiiter</Text>
-      <Button title="Navigate to Home" onPress={navigateToHome} />
+    <View style={{ flex: 1, backgroundColor: '#2A7549' }}>
+     <Text style={styles.pageTitle}>Aponte Problemas - Twiiter</Text>
+      <Button color="#F5BA39" title="Navigate to Home" onPress={navigateToHome} />
       
     </View>
   );

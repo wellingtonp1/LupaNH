@@ -21,13 +21,13 @@ export default function Home({ navigation }) {
 
     <View style={{ flex: 1, backgroundColor: '#2A7549', padding: 10 }}>
     <Image style={styles.head}  source={require('../../../images/lupanh.png')} />
-    <Text>Clicando nos ícones abaixo você responde a questões relacionadas aos temas tratados. Assim você ajuda a melhorar a infraestrutura do nosso bairro.</Text>
-    <ScrollView>
+    <Text style={styles.description}>Clicando nos ícones abaixo você responde a questões relacionadas aos temas tratados. Assim você ajuda a melhorar a infraestrutura do nosso bairro.</Text>
+    <ScrollView style={{marginTop:5}}>
       <View style={{ flexDirection: 'row', flexWrap: 'wrap', justifyContent: 'space-between',}} >
       <View style={styles.container} > 
         <TouchableOpacity activeOpacity = { .3 } onPress={navigateToLight}>
         <View style={styles.imageContainer} >
-                <Image source={{ uri: 'https://imglupa.blob.core.windows.net/img/light.png' }} style={styles.image} />
+                <Image source={require('../../../images/light.png')} style={styles.image} />
           </View>
         <View style={styles.infoContainer}>
           <Text style={styles.title}>Iluminação</Text>
@@ -38,7 +38,7 @@ export default function Home({ navigation }) {
       <View style={styles.container} > 
         <TouchableOpacity activeOpacity = { .3 } onPress={navigateToWater}>
         <View style={styles.imageContainer} >
-                <Image source={{ uri: 'https://imglupa.blob.core.windows.net/img/water.png' }} style={styles.image} />
+                <Image source={require('../../../images/water.png')} style={styles.image} />
           </View>
         <View style={styles.infoContainer}>
           <Text style={styles.title}>Água</Text>
@@ -49,7 +49,7 @@ export default function Home({ navigation }) {
       <View style={styles.container} > 
         <TouchableOpacity activeOpacity = { .3 } onPress={navigateToTrash}>
         <View style={styles.imageContainer} >
-                <Image source={{ uri: 'https://imglupa.blob.core.windows.net/img/trash.png' }} style={styles.image} />
+                <Image source={require('../../../images/trash.png')} style={styles.image} />
           </View>
         <View style={styles.infoContainer}>
           <Text style={styles.title}>Coleta de lixo</Text>
@@ -60,7 +60,7 @@ export default function Home({ navigation }) {
       <View style={styles.container} > 
         <TouchableOpacity activeOpacity = { .3 } onPress={navigateToSewer}>
         <View style={styles.imageContainer} >
-                <Image source={{ uri: 'https://imglupa.blob.core.windows.net/img/sewer.png' }} style={styles.image} />
+                <Image source={require('../../../images/sewer.png')} style={styles.image} />
           </View>
         <View style={styles.infoContainer}>
           <Text style={styles.title}>Esgoto</Text>
@@ -68,6 +68,9 @@ export default function Home({ navigation }) {
         </View>
         </TouchableOpacity>
       </View>
+
+
+
       </View>
     </ScrollView>
    

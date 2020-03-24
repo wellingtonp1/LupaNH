@@ -1,7 +1,7 @@
 import React from 'react';
-import { View, Text, Button } from 'react-native';
+import { View, Text, Button, ScrollView } from 'react-native';
 
-// import { Container } from './styles';
+import styles from './styles';
 
 export default function Trash({ navigation }) {
   function navigateToHome() {
@@ -9,10 +9,23 @@ export default function Trash({ navigation }) {
   }
 
   return (
-    <View>
-      <Text>Aponte Problemas com Lixo</Text>
-      <Button title="Navigate to Home" onPress={navigateToHome} />
-      
+    <View style={{ flex: 1, backgroundColor: '#2A7549' }}>
+    <View style={{padding:30}}>
+        <ScrollView>
+          <View >
+           <Text style={styles.pageTitle} >Aponte problemas com coleta de lixo</Text>
+          </View>
+          <View style={{marginTop:30}}>
+          <Text style={styles.description} >Possui coleta de lixo na sua casa?</Text>
+          <Text style={styles.description} >Com que frequencia?</Text>
+       
+          <View style={{marginTop:30}}>
+              <Button color="#F5BA39" title="Enviar" onPress={navigateToHome} /> 
+          </View>
+         
+          </View>
+        </ScrollView>
+      </View>
     </View>
   );
 }

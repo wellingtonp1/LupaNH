@@ -40,10 +40,11 @@ const styles = StyleSheet.create({
     borderColor: colors.lighter,
   },
 
-  title: {
+  pageTitle: {
     textAlign: 'center',
     fontWeight: 'bold',
-    color: colors.darker,
+    color: colors.white,
+    fontSize: fonts.bigger,
   },
 
   description: {
@@ -54,15 +55,10 @@ const styles = StyleSheet.create({
     marginTop: 8,
   },
 
-  price: {
-    textAlign: 'center',
-    color: colors.light,
-    fontSize: fonts.regular,
-    marginTop: 5,
-  },
+  
   head: {
-    width: 335,
-    height: 180,
+    width: 345,
+    height: 200,
  },
 });
 

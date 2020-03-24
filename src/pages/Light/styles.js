@@ -45,11 +45,16 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
     color: colors.darker,
   },
-
+  pageTitle: {
+    textAlign: 'center',
+    fontWeight: 'bold',
+    color: colors.white,
+    fontSize: fonts.bigger,
+  },
   description: {
     textAlign: 'justify',
     color: colors.white,
-    fontSize: fonts.small,
+    fontSize: fonts.regular,
     marginBottom: 8,
     marginTop: 8,
   },
@@ -61,8 +66,8 @@ const styles = StyleSheet.create({
     marginTop: 5,
   },
   head: {
-    width: 335,
-    height: 180,
+    width: 345,
+    height: 200,
  },
 });
 
