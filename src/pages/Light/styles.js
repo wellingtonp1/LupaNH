@@ -39,6 +39,11 @@ const styles = StyleSheet.create({
     borderTopWidth: 1,
     borderColor: colors.lighter,
   },
+  formField: {
+    backgroundColor: '#fff',
+    marginBottom: metrics.marginTop,
+    marginTop: 15,
+  },
 
   title: {
     textAlign: 'center',
