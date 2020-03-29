@@ -1,6 +1,7 @@
 import React from 'react';
 import { ScrollView, View, Text, Button, Image, StyleSheet, TouchableOpacity } from 'react-native';
 
+
 import styles from './styles';
 
 export default function Home({ navigation }) {
