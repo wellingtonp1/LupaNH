@@ -1,13 +1,32 @@
 import React from 'react';
 import { View, Text, Button, ScrollView } from 'react-native';
 
+import api from '../../services';
+
+
 import styles from './styles';
 
 export default function Trash({ navigation }) {
   function navigateToHome() {
     navigation.navigate('Home');
   }
+  //
 
+  async function handleReportItPress(){
+ 
+    api.post('api/light/', {
+         
+          HasLightPole: true,
+          Long: -51.0539441,
+          Lat: 0.0963026,
+          IsItWorking: true,
+          Description: 'no comments'
+    })
+    .then(res => console.log('Sucesso!', res))
+    .catch(err => console.log('Deu ruim :(', err)
+    ); 
+  };
+  //
   return (
     <View style={{ flex: 1, backgroundColor: '#2A7549' }}>
     <View style={{padding:30}}>
@@ -20,7 +39,7 @@ export default function Trash({ navigation }) {
           <Text style={styles.description} >Com que frequencia?</Text>
        
           <View style={{marginTop:30}}>
-              <Button color="#F5BA39" title="Enviar" onPress={navigateToHome} /> 
+              <Button color="#F5BA39" title="Enviar" onPress={handleReportItPress} /> 
           </View>
          
           </View>
