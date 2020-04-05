@@ -2,8 +2,19 @@ import React from 'react';
 import { View, Text, Button, ScrollView } from 'react-native';
 
 import styles from './styles';
+import MapView, {Marker} from 'react-native-maps';
 
 export default function Sewer({ navigation }) {
+ 
+  const [position, setPosition] = useState({
+    latitude: 0.0996574,
+    longitude: -51.054168,
+    latitudeDelta: 0.0033,
+    longitudeDelta: 0.0031,
+  });
+  
+
+ 
   function navigateToHome() {
     navigation.navigate('Home');
   }

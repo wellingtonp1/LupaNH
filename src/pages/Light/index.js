@@ -1,12 +1,10 @@
 import React,{ useState }  from 'react';
-import { View, Text, Button, TouchableOpacity, Picker, StyleSheet, PermissionsAndroid ,Platform } from 'react-native';
-import { ScrollView } from 'react-native-gesture-handler';
-import { withFormik } from 'formik';
+import { View, Text, Button, TouchableOpacity, Picker, StyleSheet, PermissionsAndroid } from 'react-native';
 import Geolocation from 'react-native-geolocation-service';
 import Icon from 'react-native-vector-icons/MaterialIcons';
 import styles from './styles';
 
-
+import api from '../../services';
 import MapView, {Marker} from 'react-native-maps';
 
 export default function Light({ navigation }) {
@@ -53,15 +51,29 @@ export default function Light({ navigation }) {
     navigation.navigate('Home');
   }
 
-  function getMyCurrentCoords() {
-   
-  }
+  async function handleReportItPress(){
+    
+    api.post('api/light/', {
+         
+          HasLightPole: selectedValue.value,
+          Long: position.longitude,
+          Lat: position.latitude,
+          IsItWorking: selectedValueIsItWorking.value,
+          Description: 'no comments'
+    })
+    .then(res => 
+      alert('Problema reportado com sucesso!')
+    )
+    .catch(err => 
+      alert('Ocorreu um erro: ', err)
+    ); 
+  };
  
   const [selectedValue, setSelectedValue] = useState("true");
   const [selectedValueIsItWorking, setSelectedValueIsItWorking] = useState("true");
   return (
 
-  <View style={{ flex: 1, backgroundColor: '#2A7549', padding: 10 }} onLayout={getMyCurrentCoords}>
+  <View style={{ flex: 1, backgroundColor: '#2A7549', padding: 10 }} >
       <View >
          <Text style={styles.pageTitle} >Aponte Problemas com a iluminação pública</Text>
       </View>
@@ -121,18 +133,12 @@ export default function Light({ navigation }) {
       </MapView>
      
 
-
-
-
       </View >
       
         <View style={{marginTop:30}}>
-              <Button color="#F5BA39" title="Enviar" onPress={navigateToHome} /> 
-          </View>
+              <Button color="#F5BA39" title="Enviar" onPress={handleReportItPress} /> 
+        </View>
   </View>
-
-
-
   
   );
 

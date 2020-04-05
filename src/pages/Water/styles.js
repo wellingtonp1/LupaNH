@@ -59,6 +59,20 @@ const styles = StyleSheet.create({
     width: 345,
     height: 200,
  },
+ locationButton: {
+  backgroundColor: '#F5BA39',
+  borderRadius: 3,
+  marginTop: 5,
+  marginBottom: 10,
+  width: '100%',
+  height: 37,
+  alignSelf: 'center',
+  justifyContent: 'center',
+  alignItems: 'center',
+  shadowColor: '#000',
+  elevation: 8},
+
+
 });
 
 export default styles;

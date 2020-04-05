@@ -11,13 +11,13 @@ import News from '../../pages/News';
 
 export default function TabRoute() {
   return (
-   <Tab.Navigator tabBarOptions={{ activeBackgroundColor:'#F5BA39', inactiveBackgroundColor:'#F5BA39', activeTintColor:'#777', inactiveTintColor: '#000'}} >
+   <Tab.Navigator tabBarOptions={{ activeBackgroundColor:'#F5BA39', inactiveBackgroundColor:'#F5BA39', activeTintColor:'#fff', inactiveTintColor: '#000'}} >
        <Tab.Screen name="Início" component={Home} options={{
           tabBarLabel: 'Home',
           tabBarIcon: () => <Icon name="home" color="#333" size={24} />,
         }} />
-      <Tab.Screen name="Notícias" component={News}  options={{
-          tabBarLabel: 'Notícias',
+      <Tab.Screen name="Instruções" component={News}  options={{
+          tabBarLabel: 'Instruções',
           tabBarIcon: () => <Icon name="list" color="#333" size={24} />,
         }} />
       <Tab.Screen name="Sobre" component={Help}  options={{
