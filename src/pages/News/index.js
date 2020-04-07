@@ -8,7 +8,7 @@ export default function News({ navigation }) {
 
   return (
     <View style={{ flex: 1, backgroundColor: '#2A7549' }}>
-      <Text style={styles.pageTitle}>Como usar esse App?</Text>
+      <Text style={styles.pageTitle}>Como usar este App?</Text>
       <View style={{ flex: 1, backgroundColor: '#2A7549', padding: 10 }}>
     <Image style={styles.head} source={require('../../../images/lupanh.png')} />
   
@@ -25,7 +25,7 @@ export default function News({ navigation }) {
       </View>
 
       <Text style={styles.pageTitle}>3- Envie</Text>
-      <Text style={styles.description}>Confirme o preenchimento correta as informações e por fim aperte o botão enviar</Text>
+      <Text style={styles.description}>Confirme o preenchimento correto das informações e por fim aperte o botão enviar</Text>
       <View style={{marginTop:5}}>
               <Button color="#F5BA39" title="Enviar" /> 
       </View>

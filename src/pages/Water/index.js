@@ -64,9 +64,9 @@ export default function Water({ navigation }) {
           Description: 'no comments'
     })
     .then(res => 
-      console.log('Sucesso!', res)
+      alert('Problema reportado com sucesso!')
     )
-    .catch(err => console.log('Deu ruim :(', err)
+    .catch(err => alert('Ocorreu um erro: ', err)
     ); 
   };
   
