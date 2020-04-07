@@ -16,8 +16,6 @@ export default function Trash({ navigation }) {
     longitude: -51.054168,
     latitudeDelta: 0.0033,
     longitudeDelta: 0.0031,
-    var1: true,
-    var2: 0,
   });
   
   const request_location_runtime_permission = async () => {
@@ -56,25 +54,27 @@ export default function Trash({ navigation }) {
   }
 
   async function handleReportItPress(){
-    
+    console.log('com string - ',selectedValueOften)
+    console.log(selectedValueOften)
     api.post('api/trash/', {
          
-          HasWasteCollection: position.var1,
+          HasWasteCollection: selectedValue.value,
           Long: position.longitude,
           Lat: position.latitude,
-          HowOften: position.var2,
+          HowOften: selectedValueOften,
           Description: 'no comments'
     })
     .then(res => 
       alert('Problema reportado com sucesso!')
     )
     .catch(err => 
-      alert('Ocorreu um erro: ', err)
+     
+      alert('Ocorreu um erro, verifique sua internet e tente novamente ', err)
     ); 
   };
  
   const [selectedValue, setSelectedValue] = useState("true");
-  const [selectedValueIsItWorking, setSelectedValueIsItWorking] = useState("true");
+  const [selectedValueOften, setSelectedValueIsItWorking] = useState("true");
   //
   return (
     <View style={{ flex: 1, backgroundColor: '#2A7549' }}>
@@ -99,14 +99,45 @@ export default function Trash({ navigation }) {
           <Text style={styles.description} >Com que frequencia?</Text>
           <View style={styles.container}>
                   <Picker
-                    selectedValue={selectedValueIsItWorking}
+                    selectedValue={selectedValueOften}
                     style={{ height: 50 }}
                     onValueChange={(itemValue, itemIndex) => setSelectedValueIsItWorking(itemValue)}
                   >
-                    <Picker.Item label="Sim" value="0" />
-                    <Picker.Item label="Não" value="1" />
+                    <Picker.Item label="Nenhuma" value="0" />
+                    <Picker.Item label="1x Semana" value="1" />
+                    <Picker.Item label="3x Semana" value="2" />
                   </Picker>
                 </View>
+
+                <TouchableOpacity
+            style={styles.locationButton}
+            onPress={() => {
+              request_location_runtime_permission();
+            }}>
+           
+           <Text style={{marginTop: 40, color: "#fff"}} >Verifique sua localização</Text>
+            <Icon  color={'#fff'} size={30} />
+           
+      </TouchableOpacity>
+            <MapView
+        style={{height: 200}}
+        region={position}
+        onPress={e =>
+          setPosition({
+            ...position,
+            latitude: e.nativeEvent.coordinate.latitude,
+            longitude: e.nativeEvent.coordinate.longitude,
+            longitudeDelta: 0.0134,
+            latitudeDelta: 0.0143
+          })
+        }>
+        <Marker
+          coordinate={position}
+          title={'Você esta aqui!'}
+          description={'Usaremos suas coordenadas'}
+        />
+      </MapView>
+
           <View style={{marginTop:30}}>
               <Button color="#F5BA39" title="Enviar" onPress={handleReportItPress} /> 
           </View>

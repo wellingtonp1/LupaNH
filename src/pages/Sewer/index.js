@@ -104,6 +104,36 @@ export default function Sewer({ navigation }) {
                   </Picker>
                 </View>
 
+                <TouchableOpacity
+            style={styles.locationButton}
+            onPress={() => {
+              request_location_runtime_permission();
+            }}>
+           
+           <Text style={{marginTop: 40, color: "#fff"}} >Verifique sua localização</Text>
+            <Icon  color={'#fff'} size={30} />
+           
+      </TouchableOpacity>
+            <MapView
+        style={{height: 150}}
+        region={position}
+        onPress={e =>
+          setPosition({
+            ...position,
+            latitude: e.nativeEvent.coordinate.latitude,
+            longitude: e.nativeEvent.coordinate.longitude,
+            longitudeDelta: 0.0134,
+            latitudeDelta: 0.0143
+          })
+        }>
+        <Marker
+          coordinate={position}
+          title={'Você esta aqui!'}
+          description={'Usaremos suas coordenadas'}
+        />
+      </MapView>
+
+
           <View style={{marginTop:30}}>
               <Button color="#F5BA39" title="Enviar" onPress={handleReportItPress} /> 
           </View>

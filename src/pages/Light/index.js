@@ -114,7 +114,7 @@ export default function Light({ navigation }) {
            
       </TouchableOpacity>
             <MapView
-        style={{height: 250}}
+        style={{height: 200}}
         region={position}
         onPress={e =>
           setPosition({
