@@ -52,13 +52,15 @@ export default function Sewer({ navigation }) {
 
 
   async function handleReportItPress(){
-    console.log('latitude', position.latitude)
-    console.log('longitude', position.longitude)  
-    console.log('Possui fosse', selectedValue1)
+
+    // aqui o valor correto da variavel aparece
+  
+    console.log('valor da variavel: ', selectedValue)
     
     api.post('api/sewer/', {
-         
-          HasSanitation: selectedValue.value,
+          
+          // aqui nao vai, erro 400
+          HasSanitation: selectedValue,
           Long: position.longitude,
           Lat: position.latitude,
           HasCesspool: position._hasCesspool,
