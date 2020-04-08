@@ -3,7 +3,6 @@ import { View, Text, Button, ScrollView, TouchableOpacity, Picker, StyleSheet, P
 import Geolocation from 'react-native-geolocation-service';
 import Icon from 'react-native-vector-icons/MaterialIcons';
 import styles from './styles';
-
 import api from '../../services';
 import MapView, {Marker} from 'react-native-maps';
 
