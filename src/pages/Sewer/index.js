@@ -8,13 +8,15 @@ import MapView, {Marker} from 'react-native-maps';
 
 export default function Sewer({ navigation }) {
  
+  
+  const [selectedValue, setSelectedValue] = useState("true");
+  const [selectedValue1, setSelectedValue1] = useState("true");
   const [position, setPosition] = useState({
     latitude: 0.0996574,
     longitude: -51.054168,
     latitudeDelta: 0.0033,
     longitudeDelta: 0.0031,
-    _hasSanitation: false,
-    _hasCesspool: false
+  
   });
   
 
@@ -55,6 +57,7 @@ export default function Sewer({ navigation }) {
     // aqui o valor correto da variavel aparece
   
     console.log('valor da variavel: ', selectedValue)
+    console.log('valor da variavel1: ', selectedValue1)
     
     api.post('api/sewer/', {
           
@@ -62,19 +65,17 @@ export default function Sewer({ navigation }) {
           HasSanitation: selectedValue,
           Long: position.longitude,
           Lat: position.latitude,
-          HasCesspool: position._hasCesspool,
+          HasCesspool: selectedValue1,
           Description: 'no comments'
     })
     .then(res => 
       alert('Problema reportado com sucesso!')
     )
-    .catch(err => alert('Ocorreu um erro: ', err)
+    .catch(err => console.log('Ocorreu um erro: ', err)
     ); 
   };
   
 
-  const [selectedValue, setSelectedValue] = useState("true");
-  const [selectedValue1, setSelectedValue1] = useState("true");
 
   return (
     <View style={{ flex: 1, backgroundColor: '#2A7549' }}>
