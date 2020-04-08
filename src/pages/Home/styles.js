@@ -49,7 +49,7 @@ const styles = StyleSheet.create({
   description: {
     textAlign: 'justify',
     color: colors.white,
-    fontSize: fonts.regular,
+    fontSize: fonts.big,
     marginBottom: 8,
     marginTop: 8,
   },
@@ -61,8 +61,8 @@ const styles = StyleSheet.create({
     marginTop: 5,
   },
   head: {
-    width: 335,
-    height: 180,
+    width: 310,
+    height: 170,
  },
 });
 

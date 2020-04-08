@@ -54,11 +54,11 @@ export default function Trash({ navigation }) {
   }
 
   async function handleReportItPress(){
-    console.log('com string - ',selectedValueOften)
-    console.log(selectedValueOften)
+ 
+    console.log(position.longitude)
     api.post('api/trash/', {
          
-          HasWasteCollection: selectedValue.value,
+          HasWasteCollection: selectedValue,
           Long: position.longitude,
           Lat: position.latitude,
           HowOften: selectedValueOften,
@@ -86,7 +86,7 @@ export default function Trash({ navigation }) {
           <View style={{marginTop:30}}>
           <Text style={styles.description} >Possui coleta de lixo na sua casa?</Text>
           <View style={styles.container}>
-                  <Picker
+                  <Picker 
                     selectedValue={selectedValue}
                     style={{ height: 50 }}
                     onValueChange={(itemValue, itemIndex) => setSelectedValue(position.var1)}

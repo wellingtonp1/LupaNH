@@ -14,6 +14,8 @@ export default function Sewer({ navigation }) {
     longitude: -51.054168,
     latitudeDelta: 0.0033,
     longitudeDelta: 0.0031,
+    _hasSanitation: false,
+    _hasCesspool: false
   });
   
 
@@ -50,14 +52,16 @@ export default function Sewer({ navigation }) {
 
 
   async function handleReportItPress(){
-    console.log('PipedWater', selectedValue0.value)
+    console.log('latitude', position.latitude)
+    console.log('longitude', position.longitude)  
+    console.log('Possui fosse', selectedValue1)
     
     api.post('api/sewer/', {
          
-          HasSanitation: selectedValue0.value,
+          HasSanitation: selectedValue.value,
           Long: position.longitude,
           Lat: position.latitude,
-          HasCesspool: selectedValue1.value,
+          HasCesspool: position._hasCesspool,
           Description: 'no comments'
     })
     .then(res => 
@@ -68,7 +72,7 @@ export default function Sewer({ navigation }) {
   };
   
 
-  const [selectedValue0, setSelectedValue0] = useState("true");
+  const [selectedValue, setSelectedValue] = useState("true");
   const [selectedValue1, setSelectedValue1] = useState("true");
 
   return (
@@ -82,9 +86,9 @@ export default function Sewer({ navigation }) {
           <Text style={styles.description} >Sua casa possui coleta de esgoto?</Text>
           <View style={styles.container}>
                   <Picker
-                    selectedValue={selectedValue0}
+                    selectedValue={selectedValue}
                     style={{ height: 50 }}
-                    onValueChange={(itemValue, itemIndex) => setSelectedValue0(itemValue)}
+                    onValueChange={(itemValue, itemIndex) => setSelectedValue(itemValue)}
                   >
                     <Picker.Item label="Sim" value='true' />
                     <Picker.Item label="Não" value='false' />
