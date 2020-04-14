@@ -35,6 +35,8 @@ export default function Light({ navigation }) {
               latitude: pos.coords.latitude,
               longitude: pos.coords.longitude,
             });
+            console.log('latitude atual: ',position.latitude);
+            console.log('longitude atual: ',position.longitude);
           },
           error => {
             console.log(error);
@@ -80,8 +82,8 @@ export default function Light({ navigation }) {
                 Description: 'no comments'
               })
               .then(res => 
-                  console.log(res)
-                  //alert('Problema reportado com sucesso!')
+                  //console.log(res)
+                  alert('Problema reportado com sucesso!')
               ).catch(err => console.log('Ocorreu um erro: ', err)); 
 
             }
