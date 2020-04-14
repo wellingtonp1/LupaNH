@@ -83,7 +83,6 @@ export default function Sewer({ navigation }) {
                    // console.log(res)
                     alert('Problema reportado com sucesso!')
                 ).catch(err => console.log('Ocorreu um erro: ', err)); 
-
               }
               
             }>
