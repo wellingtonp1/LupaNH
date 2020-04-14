@@ -15,16 +15,16 @@ export default function News({ navigation }) {
    
     <ScrollView>
       
-      <Text style={styles.pageTitle}>1- Ligue o GPS e a internet</Text>
+      <Text style={styles.pageHeading}>1- Ligue o GPS e a internet</Text>
       <Text style={styles.description}>Para o Lupa NH funcionar corretamente é necessário que esteja conectado na internet e com o GPS ligado.</Text>
 
-      <Text style={styles.pageTitle}>2- Verifique sua localização</Text>
+      <Text style={styles.pageHeading}>2- Verifique sua localização</Text>
       <Text style={styles.description}>Posicione o seu celular o mais próximo possível do problema que você irá relatar e clique em vericar sua localização</Text>
       <View style={{marginTop:5, marginBottom:5}}>
               <Button color="#F5BA39" title="Verifique sua localização" /> 
       </View>
 
-      <Text style={styles.pageTitle}>3- Envie</Text>
+      <Text style={styles.pageHeading}>3- Envie</Text>
       <Text style={styles.description}>Confirme o preenchimento correto das informações e por fim aperte o botão enviar</Text>
       <View style={{marginTop:5}}>
               <Button color="#F5BA39" title="Enviar" /> 

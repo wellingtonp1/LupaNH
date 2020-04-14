@@ -1,9 +1,11 @@
 import React,{ useState }  from 'react';
-import { View, Text, Button, ScrollView, TouchableOpacity, Picker, StyleSheet, PermissionsAndroid } from 'react-native';
+import { View, Text, Button, ScrollView, Alert, TouchableOpacity, Picker, PermissionsAndroid } from 'react-native';
+
+import { Formik } from 'formik';
+
 import Geolocation from 'react-native-geolocation-service';
 import Icon from 'react-native-vector-icons/MaterialIcons';
 import styles from './styles';
-
 import api from '../../services';
 import MapView, {Marker} from 'react-native-maps';
 
@@ -14,6 +16,7 @@ export default function Water({ navigation }) {
     longitude: -51.054168,
     latitudeDelta: 0.0033,
     longitudeDelta: 0.0031,
+  
   });
   
   const request_location_runtime_permission = async () => {
@@ -33,6 +36,8 @@ export default function Water({ navigation }) {
               latitude: pos.coords.latitude,
               longitude: pos.coords.longitude,
             });
+            console.log('latitude atual: ',position.latitude);
+            console.log('longitude atual: ',position.longitude);
           },
           error => {
             console.log(error);
@@ -47,39 +52,6 @@ export default function Water({ navigation }) {
     }
   };
 
-  async function handleReportItPress(){
-    console.log('PipedWater', selectedValue0.value)
-    console.log('HasOftenLack', selectedValue1)
-    console.log('HasBorehole', selectedValue2)
-    console.log('Kindof', selectedValue3)
-    
-    api.post('api/water/', {
-         
-          HasPipedWater: selectedValue0.value,
-          HasOftenWaterLack: 0,
-          Long: position.longitude,
-          Lat: position.latitude,
-          HasBorehole: false,
-          KindofBorehole: 0,
-          Description: 'no comments'
-    })
-    .then(res => 
-      alert('Problema reportado com sucesso!')
-    )
-    .catch(err => alert('Ocorreu um erro: ', err)
-    ); 
-  };
-  
-  function navigateToHome() {
-    navigation.navigate('Home');
-  }
-
-
-  const [selectedValue0, setSelectedValue0] = useState("true");
-  const [selectedValue1, setSelectedValue1] = useState("0");
-  const [selectedValue2, setSelectedValue2] = useState("true");
-  const [selectedValue3, setSelectedValue3] = useState("0");
-
   return (
     <View style={{ flex: 1, backgroundColor: '#2A7549' }}>
       <View style={{padding:30}}>
@@ -87,87 +59,127 @@ export default function Water({ navigation }) {
           <View >
            <Text style={styles.pageTitle} >Aponte problemas com água</Text>
           </View>
+          
+
+          <Formik 
+            initialValues={{HasPipedWater: 'true', HasBorehole: 'true', Long: position.longitude,
+            Lat: position.latitude,  KindofBorehole: '0',  HasOftenWaterLack: '0', Description: 'no comments'}} 
+           
+            onSubmit={values => {
+
+                // MAKING SURE ALL GEOLOCATIONS VALUES  ARE CORRECT HERE!           
+                               
+                console.log(values)
+               
+                api.post('api/water/', {
+                  HasPipedWater: values.HasPipedWater,
+                  HasOftenWaterLack: values.HasOftenWaterLack,
+                  Long: position.longitude,
+                  Lat: position.latitude,
+                  HasBorehole: values.HasBorehole,
+                  KindofBorehole: values.KindofBorehole,
+                  Description: 'no comments'
+                })
+                .then(res => 
+                    console.log(res)
+                    //alert('Problema reportado com sucesso!')
+                ).catch(err => console.log('Ocorreu um erro: ', err)); 
+
+              }
+              
+            }>
+                 {({ handleChange, handleSubmit, values }) => (
+
+
+
           <View style={{marginTop:30}}>
           <Text style={styles.description} >Possui água encanada na sua casa, nesse momento ?</Text>
           <View style={styles.container}>
                   <Picker
-                    selectedValue={selectedValue0}
+                    selectedValue={values.HasPipedWater}
                     style={{ height: 50 }}
-                    onValueChange={(itemValue, itemIndex) => setSelectedValue0(itemValue)}
+                    onValueChange={(handleChange('HasPipedWater'))}
                   >
                     <Picker.Item label="Sim" value='true' />
                     <Picker.Item label="Não" value='false' />
                   </Picker>
-                </View>
+           </View>
           <Text style={styles.description} >Quantos dias da semana falta água na sua casa?</Text>
           <View style={styles.container}>
                   <Picker
-                    selectedValue={selectedValue1}
+                    selectedValue={values.HasOftenWaterLack}
                     style={{ height: 50 }}
-                    onValueChange={(itemValue, itemIndex) => setSelectedValue1(itemValue)}
+                    onValueChange={handleChange('HasOftenWaterLack')}
                   >
                     <Picker.Item label="Nunca" value="0" />
                     <Picker.Item label="1 vez" value="1" />
                     <Picker.Item label="3 ou mais vezes" value="2" />
                   </Picker>
-                </View>
+          </View>
           <Text style={styles.description} >Possui poço na sua casa?</Text>
           <View style={styles.container}>
                   <Picker
-                    selectedValue={selectedValue2}
+                    selectedValue={values.HasBorehole}
                     style={{ height: 50 }}
-                    onValueChange={(itemValue, itemIndex) => setSelectedValue(itemValue)}
+                    onValueChange={handleChange('HasBorehole')}
                   >
                     <Picker.Item label="Sim" value="true" />
                     <Picker.Item label="Não" value="false " />
                   </Picker>
-                </View>
+          </View>
           <Text style={styles.description} >Selecione um tipo de poço:</Text>
           <View style={styles.container}>
                   <Picker
-                    selectedValue={selectedValue3}
+                    selectedValue={values.KindofBorehole}
                     style={{ height: 50 }}
-                    onValueChange={(itemValue, itemIndex) => setSelectedValue(itemValue)}
+                    onValueChange={handleChange('KindofBorehole')}
                   >
                     <Picker.Item label="Artesiano" value="0" />
                     <Picker.Item label="Amazonas" value="1" />
                   </Picker>
           </View>
           
-          <TouchableOpacity
-            style={styles.locationButton}
-            onPress={() => {
-              request_location_runtime_permission();
-            }}>
-           
-           <Text style={{marginTop: 40, color: "#fff"}} >Verifique sua localização</Text>
-            <Icon  color={'#fff'} size={30} />
-           
-      </TouchableOpacity>
-            <MapView
-        style={{height: 180}}
-        region={position}
-        onPress={e =>
-          setPosition({
-            ...position,
-            latitude: e.nativeEvent.coordinate.latitude,
-            longitude: e.nativeEvent.coordinate.longitude,
-            longitudeDelta: 0.0134,
-            latitudeDelta: 0.0143
-          })
-        }>
-        <Marker
-          coordinate={position}
-          title={'Você esta aqui!'}
-          description={'Usaremos suas coordenadas'}
-        />
-      </MapView>
+                 <TouchableOpacity
+                    style={styles.locationButton}
+                    onPress={() => {
+                      request_location_runtime_permission();
+                    }}
+                    onLayout={() => {
+                      request_location_runtime_permission();
+                    }}>
+                  
+                  <Text style={{marginTop: 40, color: "#fff"}} >Verifique sua localização</Text>
+                    <Icon  color={'#fff'} size={30} />
+                </TouchableOpacity>
 
-      <View style={{marginTop:30}}>
-          <Button color="#F5BA39" title="Enviar" onPress={handleReportItPress} /> 
-      </View>
-         
-          </View>
+                      <MapView
+                  style={{height: 150}}
+                  region={position}
+                  onPress={e =>
+                    setPosition({
+                      ...position,
+                      latitude: e.nativeEvent.coordinate.latitude,
+                      longitude: e.nativeEvent.coordinate.longitude,
+                      longitudeDelta: 0.0134,
+                      latitudeDelta: 0.0143
+                    })
+                  }>
+                  <Marker
+                    coordinate={position}
+                    title={'Você esta aqui!'}
+                    description={'Usaremos suas coordenadas'}
+                  />
+                </MapView>
+
+                <View style={{marginTop:30}}>
+                    <Button color="#F5BA39" title="Enviar"  onPress={handleSubmit} /> 
+                </View>
+
+
+              </View>
+
+            )}
+          </Formik>
         </ScrollView>
       </View>
     </View>

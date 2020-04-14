@@ -59,7 +59,7 @@ const styles = StyleSheet.create({
   description: {
     textAlign: 'justify',
     color: colors.white,
-    fontSize: fonts.regular,
+    fontSize: fonts.big,
     marginBottom: 8,
     marginTop: 8,
   },
@@ -113,7 +113,7 @@ positonBoxLatLon: {flexDirection: 'row', justifyContent: 'space-between'},
 locationButton: {
   backgroundColor: '#F5BA39',
   borderRadius: 3,
-  marginTop: -15,
+  marginTop: 5,
   marginBottom: 10,
   width: '100%',
   height: 37,

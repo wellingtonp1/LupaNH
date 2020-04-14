@@ -1,8 +1,9 @@
 import React,{ useState }  from 'react';
-import { View, Text, Button, TouchableOpacity, Picker, StyleSheet, PermissionsAndroid, ScrollView } from 'react-native';
+import { View, Text, Button, TouchableOpacity, Picker, PermissionsAndroid, ScrollView } from 'react-native';
 import Geolocation from 'react-native-geolocation-service';
 import Icon from 'react-native-vector-icons/MaterialIcons';
 
+import { Formik } from 'formik';
 
 import api from '../../services';
 import MapView, {Marker} from 'react-native-maps';
@@ -49,32 +50,8 @@ export default function Trash({ navigation }) {
     }
   };
 
-  function navigateToHome() {
-    navigation.navigate('Home');
-  }
-
-  async function handleReportItPress(){
+  
  
-    console.log(position.longitude)
-    api.post('api/trash/', {
-         
-          HasWasteCollection: selectedValue,
-          Long: position.longitude,
-          Lat: position.latitude,
-          HowOften: selectedValueOften,
-          Description: 'no comments'
-    })
-    .then(res => 
-      alert('Problema reportado com sucesso!')
-    )
-    .catch(err => 
-     
-      alert('Ocorreu um erro, verifique sua internet e tente novamente ', err)
-    ); 
-  };
- 
-  const [selectedValue, setSelectedValue] = useState("true");
-  const [selectedValueOften, setSelectedValueIsItWorking] = useState("true");
   //
   return (
     <View style={{ flex: 1, backgroundColor: '#2A7549' }}>
@@ -83,13 +60,41 @@ export default function Trash({ navigation }) {
           <View >
            <Text style={styles.pageTitle} >Aponte problemas com coleta de lixo</Text>
           </View>
+
+          <Formik 
+            initialValues={{HasWasteCollection: 'true', HowOften: '0', Long: position.longitude,
+            Lat: position.latitude,  Description: 'no comments'}} 
+           
+            onSubmit={values => {
+
+                // MAKING SURE ALL GEOLOCATIONS VALUES  ARE CORRECT HERE!           
+                               
+                console.log(values)
+               
+                api.post('api/trash/', {
+                  HasWasteCollection: values.HasWasteCollection,
+                  HowOften: values.HowOften,
+                  Long: position.longitude,
+                  Lat: position.latitude,  
+                  Description: 'no comments'
+                })
+                .then(res => 
+                    console.log(res)
+                    //alert('Problema reportado com sucesso!')
+                ).catch(err => console.log('Ocorreu um erro: ', err)); 
+
+              }
+              
+            }>
+            {({ handleChange, handleSubmit, values }) => (
+
           <View style={{marginTop:30}}>
           <Text style={styles.description} >Possui coleta de lixo na sua casa?</Text>
           <View style={styles.container}>
                   <Picker 
-                    selectedValue={selectedValue}
+                    selectedValue={values.HasWasteCollection}
                     style={{ height: 50 }}
-                    onValueChange={(itemValue, itemIndex) => setSelectedValue(position.var1)}
+                    onValueChange={handleChange('HasWasteCollection')}
                   >
                     <Picker.Item label="Sim" value="true" />
                     <Picker.Item label="Não" value="false" />
@@ -99,9 +104,9 @@ export default function Trash({ navigation }) {
           <Text style={styles.description} >Com que frequencia?</Text>
           <View style={styles.container}>
                   <Picker
-                    selectedValue={selectedValueOften}
+                    selectedValue={values.HowOften}
                     style={{ height: 50 }}
-                    onValueChange={(itemValue, itemIndex) => setSelectedValueIsItWorking(itemValue)}
+                    onValueChange={handleChange('HowOften')}
                   >
                     <Picker.Item label="Nenhuma" value="0" />
                     <Picker.Item label="1x Semana" value="1" />
@@ -110,17 +115,19 @@ export default function Trash({ navigation }) {
                 </View>
 
                 <TouchableOpacity
-            style={styles.locationButton}
-            onPress={() => {
-              request_location_runtime_permission();
-            }}>
-           
-           <Text style={{marginTop: 40, color: "#fff"}} >Verifique sua localização</Text>
-            <Icon  color={'#fff'} size={30} />
-           
-      </TouchableOpacity>
+                    style={styles.locationButton}
+                    onPress={() => {
+                      request_location_runtime_permission();
+                    }}
+                    onLayout={() => {
+                      request_location_runtime_permission();
+                    }}>
+                  
+                  <Text style={{marginTop: 40, color: "#fff"}} >Verifique sua localização</Text>
+                    <Icon  color={'#fff'} size={30} />
+                </TouchableOpacity>
             <MapView
-        style={{height: 200}}
+        style={{height: 150}}
         region={position}
         onPress={e =>
           setPosition({
@@ -138,11 +145,16 @@ export default function Trash({ navigation }) {
         />
       </MapView>
 
-          <View style={{marginTop:30}}>
-              <Button color="#F5BA39" title="Enviar" onPress={handleReportItPress} /> 
-          </View>
+      <View style={{marginTop:30}}>
+                    <Button color="#F5BA39" title="Enviar"  onPress={handleSubmit} /> 
+                </View>
+
+
+              </View>
+
+            )}
+          </Formik>
          
-          </View>
         </ScrollView>
       </View>
     </View>

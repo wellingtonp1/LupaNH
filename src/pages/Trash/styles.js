@@ -50,7 +50,7 @@ const styles = StyleSheet.create({
   description: {
     textAlign: 'justify',
     color: colors.white,
-    fontSize: fonts.small,
+    fontSize: fonts.big,
     marginBottom: 8,
     marginTop: 8,
   },

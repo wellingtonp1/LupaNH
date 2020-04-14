@@ -46,6 +46,12 @@ const styles = StyleSheet.create({
     color: colors.white,
     fontSize: fonts.bigger,
   },
+  pageHeading: {
+    textAlign: 'center',
+    fontWeight: 'bold',
+    color: colors.white,
+    fontSize: fonts.big,
+  },
 
   description: {
     textAlign: 'justify',
