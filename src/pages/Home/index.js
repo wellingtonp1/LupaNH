@@ -3,6 +3,7 @@ import { ScrollView, View, Text, Button, Image, StyleSheet, TouchableOpacity } f
 
 
 import styles from './styles';
+import { fonts } from '../../styles';
 
 export default function Home({ navigation }) {
   function navigateToLight() {
@@ -69,7 +70,17 @@ export default function Home({ navigation }) {
         </View>
         </TouchableOpacity>
       </View>
-
+      <View style={styles.container} > 
+        <TouchableOpacity activeOpacity = { .3 } onPress={navigateToSewer}>
+        <View style={styles.imageContainer} >
+                <Image source={require('../../../images/asphalt.png')} style={styles.image} />
+          </View>
+        <View style={styles.infoContainer}>
+          <Text style={styles.title}>Asfalto</Text>
+          <Text style={{fontSize: fonts.small}}>(em construção)</Text>
+        </View>
+        </TouchableOpacity>
+      </View>
 
 
       </View>

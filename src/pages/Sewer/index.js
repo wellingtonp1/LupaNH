@@ -9,9 +9,7 @@ import styles from './styles';
 import api from '../../services';
 import MapView, {Marker} from 'react-native-maps';
 
-
 export default function Sewer({ navigation }) {
-
 
   const [position, setPosition] = useState({
     latitude: 0.0996574,
@@ -81,7 +79,7 @@ export default function Sewer({ navigation }) {
                 })
                 .then(res => 
                    // console.log(res)
-                    alert('Problema reportado com sucesso!')
+                   Alert.alert('Obrigado','Problema reportado com sucesso!')
                 ).catch(err => console.log('Ocorreu um erro: ', err)); 
               }
               
@@ -139,8 +137,8 @@ export default function Sewer({ navigation }) {
                       ...position,
                       latitude: e.nativeEvent.coordinate.latitude,
                       longitude: e.nativeEvent.coordinate.longitude,
-                      longitudeDelta: 0.0134,
-                      latitudeDelta: 0.0143
+                      longitudeDelta: 0.0031,
+                      latitudeDelta: 0.0033
                     })
                   }>
                   <Marker

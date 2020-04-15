@@ -61,8 +61,8 @@ const styles = StyleSheet.create({
     marginTop: 5,
   },
   head: {
-    width: 310,
-    height: 170,
+    width: 320,
+    height: 165,
  },
 });
 

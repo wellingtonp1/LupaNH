@@ -83,7 +83,7 @@ export default function Light({ navigation }) {
               })
               .then(res => 
                   //console.log(res)
-                  alert('Problema reportado com sucesso!')
+                  Alert.alert('Obrigado','Problema reportado com sucesso!')
               ).catch(err => console.log('Ocorreu um erro: ', err)); 
 
             }
