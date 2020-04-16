@@ -13,42 +13,32 @@ These instructions will get you a copy of the project up and running on your loc
 ### Pre-requisitos - Prerequisites
 
 O que você precisa para instalar o software
+* O app foi construído em java script com React-Native, por isso é necessário que sua estaçao de trabalho o tenha instalado, [instação do ambinente React Native](https://react-native.rocketseat.dev/)
 
 What things you need to install the software 
+* This application was built with java script and React-native, because of that you need prepare your workspace. [instação do ambinente React Native](https://react-native.rocketseat.dev/)
 
-
-1- O app foi construído em java script com React-Native, por isso é necessário que sua estaçao de trabalho o tenha instalado 
-
-1- This application was built with java script and React-native, because of that you need prepare your workspace.
-
-
-## Deployment
-
-Add additional notes about how to deploy this on a live system
 
 ## Built With
 
-* [react-native](http://www.reactnative.com/)
+* [react-native](http://www.reactnative.dev/)
+* [Google-Maps APIs](https://developers.google.com/maps/documentation)
 
 
 ## Contributing
 
-Nossa inspiração é apoiar a comunidade de Novo Horizonte de forma volutária, tenha isso em mente ao contribuir
+Nossa inspiração é apoiar a comunidade de Novo Horizonte de forma volutária tenha isso em mente ao contribuir, mas fique a vontade para reaproveitar o código para outras atividades filantrôpicas.
 
 Our inspiration is support local communites thru volunteering, please have it in mind when processing for submitting pull requests to us.
-
-## Versionamento - Versioning
-
-So far we only have one version available, hopefully new version and enhacements will come soon
 
 ## Autores / Authors
 
 * **Wellington Ferreira** - [Wellingtonp1](https://github.com/wellingtonp1)
 
-See also the list of who participated in this project.
+Abaixo lista de contribuidores desse projeto:
+See also the list of who contributed in this project:
     
  * **Wendler Reis** - [Wendler Reis](https://github.com/wendlereis)
-
 
 ## Acknowledgments
 
