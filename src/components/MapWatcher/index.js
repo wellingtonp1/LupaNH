@@ -18,7 +18,7 @@ import haversine from "haversine";
 
  const LATITUDE = 29.95539;
  const LONGITUDE = 78.07513;
-const LATITUDE_DELTA = 0.003;
+const LATITUDE_DELTA = 0.0033;
 const LONGITUDE_DELTA = 0.0031;
 //const LATITUDE = 37.78825;
 //const LONGITUDE = -122.4324;
