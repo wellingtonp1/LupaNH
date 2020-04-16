@@ -4,6 +4,8 @@ Lupa NH é uma aplicação para mapeamento de falta de asfaltamento, saneamento 
 Projeto idealizado pelo Walter Teixeira Lima Junior
 https://seer.uscs.edu.br/index.php/revista_comunicacao_inovacao/article/view/5030
 
+![print](https://imglupa.blob.core.windows.net/img/home.jpeg)
+
 ## Instalação
 
 Essas instruções darão uma cópia do projeto na sua estão de trabalho para desenvolvimento e testes. Abaixo compartilho mais detalhes.
