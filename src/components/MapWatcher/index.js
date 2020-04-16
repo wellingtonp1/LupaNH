@@ -16,12 +16,10 @@ import MapView, {
 } from "react-native-maps";
 import haversine from "haversine";
 
- const LATITUDE = 29.95539;
- const LONGITUDE = 78.07513;
-const LATITUDE_DELTA = 0.0033;
-const LONGITUDE_DELTA = 0.0031;
-//const LATITUDE = 37.78825;
-//const LONGITUDE = -122.4324;
+const LATITUDE = -23.6967893;
+const LONGITUDE = -46.7627351;
+const LATITUDE_DELTA = 0.0002;
+const LONGITUDE_DELTA = 0.0021;
 
 class MapWatcher extends React.Component {
   
@@ -42,10 +40,11 @@ class MapWatcher extends React.Component {
           })
         };
       }
-  
-           
+            
       componentDidMount() {
-        Geolocation.getCurrentPosition(
+        const { coordinate} = this.state;
+       
+        this.watchID = Geolocation.watchPosition(
             position => {
                 const { routeCoordinates, distanceTravelled } = this.state;
                 const { latitude, longitude } = position.coords;
@@ -58,9 +57,9 @@ class MapWatcher extends React.Component {
                 if (Platform.OS === "android") {
                   if (this.marker) {
                     this.marker._component.animateMarkerToCoordinate(
-                      newCoordinate, 500        
+                      newCoordinate, 100        
                      );
-                     console.log('marker info ', this.marker.coordinates)
+                   
                   }
                 } else {
                   coordinate.timing(newCoordinate).start();
@@ -80,7 +79,7 @@ class MapWatcher extends React.Component {
                 enableHighAccuracy: true,
                 timeout: 20000,
                 maximumAge: 500,
-                
+                distanceFilter: 1,
               });
       }
     
@@ -98,13 +97,12 @@ class MapWatcher extends React.Component {
     
       calcDistance = newLatLng => {
        const { prevLatLng } = this.state;
-       console.log( 'Prev Position', prevLatLng)
        return haversine(prevLatLng, newLatLng) || 0;
       };
 
   render() {
     return (
-        <View style={{flex:1}}>
+        <View style={{width: '100%', height:340}}>
         <MapView
           style={styles.map}
           provider={PROVIDER_GOOGLE}
@@ -119,13 +117,17 @@ class MapWatcher extends React.Component {
               this.marker = marker;
             }}
             coordinate={this.state.coordinate}
+            title={'Você esta aqui!'}
+            description={'suas coordenadas'}
           />
         </MapView>
         <View style={styles.buttonContainer}>
           <TouchableOpacity style={[styles.bubble, styles.button]}>
+          
             <Text style={styles.bottomBarContent}>
-              {parseFloat(this.state.distanceTravelled).toFixed(2)} km
+             Distância percorrida: {parseFloat(this.state.distanceTravelled).toFixed(2)} km
             </Text>
+            <Text style={styles.bottomBarContent}>Coordenadas atuais:</Text>
             <Text style={styles.bottomBarContent}>
              latitude: {parseFloat(this.state.latitude)} 
             </Text>

@@ -60,11 +60,14 @@ const styles = StyleSheet.create({
     width: 345,
     height: 200,
  },
+ mapView: {
+ marginTop: 20
+ },
 
  locationButton: {
   backgroundColor: '#F5BA39',
   borderRadius: 3,
-  marginTop: 5,
+  marginTop: 25,
   marginBottom: 10,
   width: '100%',
   height: 37,

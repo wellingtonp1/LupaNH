@@ -6,24 +6,26 @@ https://seer.uscs.edu.br/index.php/revista_comunicacao_inovacao/article/view/503
 
 ## Instalação
 
-Essas instruções darão uma cópia do projeto na sua estão de trabalho para desenvolvimento e testes. Abaixo compartilho como fazer
+Essas instruções darão uma cópia do projeto na sua estão de trabalho para desenvolvimento e testes. Abaixo compartilho mais detalhes.
 
 These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. See deployment for notes on how to deploy the project on a live system.
 
-### / Pre-requisitos - Prerequisites
+### Pre-requisitos - Prerequisites
 
 O que você precisa para instalar o software
-What things you need to install the software and how to install them
 
-```
-O app foi construído em java script com React-Native, por isso é necessário que sua estaçao de trabalho o tenha instalado   
+What things you need to install the software 
 
-```
+``
+test  
+
+``
 
 ### Installing
 
-A step by step series of examples that tell you how to get a development env running
+O app foi construído em java script com React-Native, por isso é necessário que sua estaçao de trabalho o tenha instalado 
 
+This application was built with java script and React-native, because of that you need prepare your workspace.
 
 ```
 
@@ -46,7 +48,7 @@ Add additional notes about how to deploy this on a live system
 
 ## Built With
 
-* [react-native](http://www.reactnative.com/) - The web framework used
+* [react-native](http://www.reactnative.com/)
 
 
 ## Contributing
