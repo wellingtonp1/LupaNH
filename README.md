@@ -17,11 +17,9 @@ O que você precisa para instalar o software
 What things you need to install the software 
 
 
-### Installing
+1- O app foi construído em java script com React-Native, por isso é necessário que sua estaçao de trabalho o tenha instalado 
 
-O app foi construído em java script com React-Native, por isso é necessário que sua estaçao de trabalho o tenha instalado 
-
-This application was built with java script and React-native, because of that you need prepare your workspace.
+1- This application was built with java script and React-native, because of that you need prepare your workspace.
 
 
 ## Deployment
