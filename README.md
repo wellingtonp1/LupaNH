@@ -33,22 +33,28 @@ Add additional notes about how to deploy this on a live system
 
 ## Contributing
 
-Our inspiration is support local communites volunteering, please have it in mind when processing for submitting pull requests to us.
+Nossa inspiração é apoiar a comunidade de Novo Horizonte de forma volutária, tenha isso em mente ao contribuir
+
+Our inspiration is support local communites thru volunteering, please have it in mind when processing for submitting pull requests to us.
 
 ## Versionamento - Versioning
 
 So far we only have one version available, hopefully new version and enhacements will come soon
 
-## Authors
+## Autores / Authors
 
-* **Wellington Ferreira** - *Initial work* - [Wellingtonp1](https://github.com/wellingtonp1)
+* **Wellington Ferreira** - [Wellingtonp1](https://github.com/wellingtonp1)
 
 See also the list of who participated in this project.
     
-[Wendler Reis](https://github.com/wendlereis)
+ * **Wendler Reis** - [Wendler Reis](https://github.com/wendlereis)
 
 
 ## Acknowledgments
+
+* Este é um trabalho volutário
+* Open source 
+* Contribuições são bem-vindas!
 
 * It's a volunteer work in order to support local communities 
 * It's a open source project
