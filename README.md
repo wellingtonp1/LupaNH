@@ -16,10 +16,6 @@ O que você precisa para instalar o software
 
 What things you need to install the software 
 
-``
-test  
-
-``
 
 ### Installing
 
@@ -27,20 +23,6 @@ O app foi construído em java script com React-Native, por isso é necessário q
 
 This application was built with java script and React-native, because of that you need prepare your workspace.
 
-```
-
-## Running the tests
-
-
-Explain how to run the automated tests for this system
-
-### And coding style tests
-
-Explain what these tests test and why
-
-```
-Give an example
-```
 
 ## Deployment
 
