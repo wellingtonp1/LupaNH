@@ -6,12 +6,12 @@ import React from 'react';
 const Stack = createStackNavigator();
 
 
-import Home from './pages/Home';
+
 import Light from './pages/Light';
 import Water from './pages/Water';
 import Trash from './pages/Trash';
 import Sewer from './pages/Sewer';
-
+import Asphalt from './pages/Asphalt';
 
 
 export default function Routes() {
@@ -22,6 +22,7 @@ export default function Routes() {
       <Stack.Screen  name="Water"  component={Water} options={{ title: 'Problemas com Água' ,headerTitleAlign: "center" }}  />
       <Stack.Screen  name="Trash"  component={Trash} options={{ title: 'Problemas com Lixo' ,headerTitleAlign: "center" }}  />
       <Stack.Screen  name="Sewer"  component={Sewer} options={{ title: 'Problemas de Esgoto' ,headerTitleAlign: "center" }}  />
+      <Stack.Screen  name="Asphalt"  component={Asphalt} options={{ title: 'Problemas de Asfalto' ,headerTitleAlign: "center" }}  />
     </Stack.Navigator>
       
   );

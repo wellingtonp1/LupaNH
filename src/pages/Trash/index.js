@@ -1,5 +1,5 @@
 import React,{ useState }  from 'react';
-import { View, Text, Button, TouchableOpacity, Picker, PermissionsAndroid, ScrollView } from 'react-native';
+import { View, Text, Button, TouchableOpacity, Picker, PermissionsAndroid, ScrollView, Alert } from 'react-native';
 import Geolocation from 'react-native-geolocation-service';
 import Icon from 'react-native-vector-icons/MaterialIcons';
 
@@ -82,7 +82,7 @@ export default function Trash({ navigation }) {
                 })
                 .then(res => 
                    // console.log(res)
-                    Alert.alert('Obrigado','Problema reportado com sucesso!')
+                  Alert.alert('Obrigado','Problema reportado com sucesso!')
                 ).catch(err => console.log('Ocorreu um erro: ', err)); 
 
               }
@@ -136,8 +136,8 @@ export default function Trash({ navigation }) {
             ...position,
             latitude: e.nativeEvent.coordinate.latitude,
             longitude: e.nativeEvent.coordinate.longitude,
-            longitudeDelta: 0.0134,
-            latitudeDelta: 0.0143
+            longitudeDelta: 0.0032,
+            latitudeDelta: 0.0033
           })
         }>
         <Marker

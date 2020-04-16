@@ -18,6 +18,9 @@ export default function Home({ navigation }) {
   function navigateToSewer() {
     navigation.navigate('Sewer');
   }
+  function navigateToAsphalt() {
+    navigation.navigate('Asphalt');
+  }
  
   return (
 
@@ -71,7 +74,7 @@ export default function Home({ navigation }) {
         </TouchableOpacity>
       </View>
       <View style={styles.container} > 
-        <TouchableOpacity activeOpacity = { .3 } onPress={navigateToSewer}>
+        <TouchableOpacity activeOpacity = { .3 } onPress={navigateToAsphalt}>
         <View style={styles.imageContainer} >
                 <Image source={require('../../../images/asphalt.png')} style={styles.image} />
           </View>
