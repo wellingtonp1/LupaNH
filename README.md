@@ -19,13 +19,13 @@ What things you need to install the software
 * This application was built with java script and React-native, because of that you need prepare your workspace. [instação do ambinente React Native](https://react-native.rocketseat.dev/)
 
 
-## Built With
+## Desenvolvido com / Built With
 
 * [react-native](http://www.reactnative.dev/)
 * [Google-Maps APIs](https://developers.google.com/maps/documentation)
 
 
-## Contributing
+## Contribuição / Contributing
 
 Nossa inspiração é apoiar a comunidade de Novo Horizonte de forma volutária tenha isso em mente ao contribuir, mas fique a vontade para reaproveitar o código para outras atividades filantrôpicas.
 
@@ -36,6 +36,7 @@ Our inspiration is support local communites thru volunteering, please have it in
 * **Wellington Ferreira** - [Wellingtonp1](https://github.com/wellingtonp1)
 
 Abaixo lista de contribuidores desse projeto:
+
 See also the list of who contributed in this project:
     
  * **Wendler Reis** - [Wendler Reis](https://github.com/wendlereis)
