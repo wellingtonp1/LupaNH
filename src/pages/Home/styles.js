@@ -7,7 +7,7 @@ const styles = StyleSheet.create({
   container: {
     backgroundColor: colors.lighter,
     borderRadius: 3,
-    width: (width - 45) / 2,
+    width: (width - 35) / 2,
     marginBottom: metrics.padding,
     shadowColor: colors.light,
     shadowRadius: 2,

@@ -80,7 +80,7 @@ export default function Home({ navigation }) {
           </View>
         <View style={styles.infoContainer}>
           <Text style={styles.title}>Asfalto</Text>
-          <Text style={{fontSize: fonts.small}}>(em construção)</Text>
+    
         </View>
         </TouchableOpacity>
       </View>

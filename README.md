@@ -16,7 +16,7 @@ O que você precisa para instalar o software
 * O app foi construído em java script com React-Native, por isso é necessário que sua estaçao de trabalho o tenha instalado, [instação do ambinente React Native](https://react-native.rocketseat.dev/)
 
 What things you need to install the software 
-* This application was built with java script and React-native, because of that you need prepare your workspace. [instação do ambinente React Native](https://react-native.rocketseat.dev/)
+* This application was built with java script and React-native, because of that you need prepare your workspace. [Install React Native](https://react-native.rocketseat.dev/)
 
 
 ## Desenvolvido com / Built With
@@ -48,7 +48,7 @@ See also the list of who contributed in this project:
 * Contribuições são bem-vindas!
 
 * It's a volunteer work in order to support local communities 
-* It's a open source project
+* It's an open source project
 * Contributions are welcome!
 
 

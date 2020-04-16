@@ -60,3 +60,5 @@ buck-out/
 
 #Maps Key
 AndroidManifest.xml
+
+*/services/index.js
