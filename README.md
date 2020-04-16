@@ -41,7 +41,7 @@ Abaixo lista de contribuidores desse projeto:
 
 See also the list of who contributed in this project:
     
- * **Wendler Eis** - [Wendler Reis](https://github.com/wendlereis)
+ * **Wendler Eis** - [Wendler Eis](https://github.com/wendlereis)
 
 ## Acknowledgments
 
